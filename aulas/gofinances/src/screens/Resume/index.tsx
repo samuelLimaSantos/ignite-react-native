@@ -5,6 +5,7 @@ import {
   Container,
   Header,
   Title,
+  Content
 } from './styles';
 import { categories } from '../../utils/categories';
 
@@ -17,8 +18,10 @@ interface TransactionData {
 }
 
 interface TotalCategory {
+  key: string;
   name: string;
   total: string;
+  color: string;
 }
 
 export function Resume() {
@@ -52,6 +55,8 @@ export function Resume() {
       if (categorySum > 0) {
         totalByCategory.push({
           name: category.name,
+          color: category.color,
+          key: category.key,
           total,
         });
       }
@@ -71,11 +76,17 @@ export function Resume() {
         <Title>Resumo por categoria</Title>
       </Header>
 
-      <HistoryCard 
-        title="Compras"
-        amount="R$ 150,50"
-        color="red"
-      />
+      
+      <Content>
+        {totalByCategories.map(item => (
+          <HistoryCard 
+            title={item.name}
+            amount={item.total}
+            color={item.color}
+            key={item.key}
+          />
+        ))}
+      </Content>
         
      
     </Container>
