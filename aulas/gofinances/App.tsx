@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import {
   useFonts,
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar translucent animated style="light"/>
+      <StatusBar barStyle="light-content"/>
       <NavigationContainer>
         <AppRoutes />
       </NavigationContainer>
