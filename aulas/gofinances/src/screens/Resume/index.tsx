@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useFocusEffect } from '@react-navigation/core';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
@@ -12,6 +13,10 @@ import {
   Title,
   Content,
   ChartContainer,
+  MonthSelect,
+  MonthSelectButton,
+  Month,
+  MonthSelectIcon,
 } from './styles';
 
 interface TransactionData {
@@ -102,7 +107,24 @@ export function Resume() {
       </Header>
 
       
-      <Content>
+      <Content
+        style={{
+          paddingBottom: useBottomTabBarHeight(),
+        }}
+      >
+
+        <MonthSelect>
+          <MonthSelectButton>
+            <MonthSelectIcon name="chevron-left"/>
+          </MonthSelectButton>
+
+          <Month>Agosto</Month>
+
+          <MonthSelectButton>
+            <MonthSelectIcon name="chevron-right"/>
+          </MonthSelectButton>
+
+        </MonthSelect>
 
         <ChartContainer>
           <VictoryPie 
