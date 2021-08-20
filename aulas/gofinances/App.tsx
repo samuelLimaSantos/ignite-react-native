@@ -16,7 +16,7 @@ import theme from './src/global/styles/theme';
 import { AppRoutes } from './src/screens/routes/app.routes';
 
 import { SignIn } from './src/screens/SignIn';
-import { AuthContext } from './src/AuthContext';
+import { AuthProvider } from './src/hooks/auth';
 
 
 export default function App() {
@@ -36,9 +36,9 @@ export default function App() {
       <StatusBar barStyle="light-content"/>
       <NavigationContainer>
         {/* <AppRoutes /> */}
-        <AuthContext.Provider value={[]}>
+        <AuthProvider>
           <SignIn />
-        </AuthContext.Provider>
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );
